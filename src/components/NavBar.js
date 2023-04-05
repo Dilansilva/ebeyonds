@@ -1,8 +1,6 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, BellIcon,MagnifyingGlassIcon,HomeIcon,HandRaisedIcon,EyeIcon } from '@heroicons/react/24/outline'
 
-
-
 import NavIcon from './NavIcon'
 
 export default function NavBar() {

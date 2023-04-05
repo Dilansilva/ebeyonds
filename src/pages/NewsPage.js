@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import NewsComponent from "../components/NewsComponent"
 
-
 import { Button } from "@material-tailwind/react";
+import Footer from "../components/Footer";
 
 const NewsPage = () => {
     const [type,setType] = useState('all');
@@ -26,7 +26,7 @@ const NewsPage = () => {
     },[type])
     return(
         <>
-             <div className="bg-white-100">
+             <div className="bg-white-100 flex-grow">
                 <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-28">
                     <div className="mx-auto max-w-2xl py-12 sm:py-16 lg:max-w-none lg:py-12">
                         <h1 className="text-4xl">Our News</h1>
@@ -39,20 +39,28 @@ const NewsPage = () => {
                                 <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
                                     
                                     {loading ? <h1 className="text-4xl">Loading.....Please Wait</h1> : callouts?.map((data) => (
-                                        <NewsComponent
-                                            key={data.id}
-                                            imgSrc={data.imageUrl}
-                                            imgAlt={data.imageAlt}
-                                            heading={data.author}
-                                            date={data.date}
-                                            description={data.content}
-                                            link={data.readMoreUrl}
-                                        />
+                                       <>
+                                            <NewsComponent
+                                                key={data.id}
+                                                imgSrc={data.imageUrl}
+                                                imgAlt={data.imageAlt}
+                                                heading={data.author}
+                                                date={data.date}
+                                                description={data.content}
+                                                link={data.readMoreUrl}
+                                                time={data.time}
+                                                readMoreUrl={data.readMoreUrl}
+                                                title={data.title}
+                                            />
+                                       </>
                                     ))}
                                 </div>
                         </div>
                     </div>
                 </div>
+                {
+                    !loading ? <Footer/> : null
+                }
         </>
     )
 }
