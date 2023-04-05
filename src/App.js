@@ -1,5 +1,6 @@
 //components
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 //pages
 import NewsPage from "./pages/NewsPage";
@@ -9,6 +10,7 @@ function App() {
     <>
       <NavBar/>
       <NewsPage/>
+      <Footer/>
     </>
   );
 }
